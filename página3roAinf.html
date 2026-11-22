@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Colegio Provincia de Bolívar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333333;
+        }
+
+        header {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-bottom: 5px solid #5C0018;
+        }
+
+        header h1 {
+            margin: 5px;
+            font-size: 34px;
+        }
+
+        header p {
+            margin: 10px;
+            font-size: 17px;
+        }
+
+        nav {
+            background-color: #5C0018;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav button {
+            background-color: white;
+            color: #800020;
+            border: 2px solid white;
+            padding: 10px 18px;
+            margin: 4px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #EFD9DE;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1200px;
+            margin: 25px auto;
+        }
+
+        h2 {
+            color: #800020;
+            border-bottom: 3px solid #800020;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #800020;
+        }
+
+        .caja {
+            background-color: #F9F0F2;
+            border-left: 6px solid #e6ff01;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .caja p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .tarjetas {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tarjeta {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border: 2px solid #800020;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 8px #cccccc;
+        }
+
+        .tarjeta h3 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th {
+            background-color: #800020;
+            color: white;
+            padding: 14px;
+        }
+
+        td {
+            border: 1px solid #cccccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9F0F2;
+        }
+
+        tr:hover {
+            background-color: #EFD9DE;
+        }
+
+        .deporte img {
+            max-width: 40%;
+            height: auto;
+        }
+
+        .deportes {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .deporte {
+            flex: 1;
+            min-width: 200px;
+            background-color: #800020;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .deporte h3 {
+            color: white;
+        }
+
+        /* ESTILOS SECCIÓN RESEÑA (TUCTA) */
+        .seccion-resena {
+            font-family: Georgia, serif;
+            background-color: #f4f1eb;
+            color: #333333;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .encabezado-resena {
+            padding: 35px 20px 25px;
+            text-align: center;
+        }
+
+        .encabezado-resena h1 {
+            font-size: 43px;
+            font-weight: normal;
+            letter-spacing: 7px;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+
+        .linea {
+            width: 90px;
+            height: 2px;
+            background: #333333;
+            margin: 20px auto;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #333333;
+        }
+
+        .reseñas {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .reseña {
+            background-color: #ffffff;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-left: 4px solid #333333;
+        }
+
+        .reseña h2 {
+            font-size: 25px;
+            font-weight: normal;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #333333;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .reseña h3 {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-align: center;
+            font-weight: normal;
+            color: #777777;
+        }
+
+        .reseña p {
+            font-size: 17px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        .zona-boton {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .boton {
+            padding: 16px 42px;
+            background-color: #333333;
+            color: white;
+            border: none;
+            font-size: 14px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #777777;
+            transform: scale(1.04);
+        }
+
+        #galeria {
+            display: none;
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        #galeria.mostrar {
+            display: block;
+        }
+
+        .titulo-galeria {
+            font-weight: normal;
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #333333;
+            border-bottom: none;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .foto {
+            background-color: white;
+            padding: 12px;
+        }
+
+        .foto img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .foto p {
+            text-align: center;
+            letter-spacing: 4px;
+            font-size: 13px;
+            padding: 12px 0 5px;
+        }
+
+        .pie-resena {
+            text-align: center;
+            padding: 35px 20px 15px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #666666;
+        }
+
+        @media (max-width: 600px) {
+            .encabezado-resena h1 {
+                font-size: 30px;
+            }
+
+            .reseña {
+                padding: 22px;
+            }
+
+            .reseña p {
+                font-size: 15px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>COLEGIO PROVINCIA DE BOLÍVAR</h1>
+
+        <p>
+            Educación, formación y desarrollo integral
+        </p>
+
+    </header>
+
+    <nav>
+
+        <button onclick="mostrar('inicio')">
+            Inicio
+        </button>
+
+        <button onclick="mostrar('academico')">
+            Información académica
+        </button>
+
+        <button onclick="mostrar('cronograma')">
+            Cronograma
+        </button>
+
+        <button onclick="mostrar('deportes')">
+            Deportes
+        </button>
+
+        <button onclick="mostrar('colegio')">
+            Información general
+        </button>
+
+        <button onclick="mostrar('resena')">
+            Reseña
+        </button>
+
+    </nav>
+
+    <main class="contenedor">
+
+        <section id="inicio">
+
+            <h2>Bienvenidos</h2>
+
+            <div class="caja">
+
+                <p>
+                    Bienvenidos a la página informativa del
+                    Colegio Provincia de Bolívar.
+                </p>
+
+                <p>
+                    En esta página encontrarás información
+                    académica, actividades, cronograma,
+                    contenido deportivo y datos generales
+                    de la institución.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="academico" style="display:none;">
+
+            <h2>Información Académica</h2>
+
+            <div class="caja">
+
+                <p>
+                    El Colegio Provincia de Bolívar ofrece
+                    Educación General Básica Superior y
+                    Bachillerato, con un equipo docente
+                    especializado y comprometido con la
+                    formación de los estudiantes.
+                </p>
+
+                <p>
+                    La institución también cuenta con
+                    formación técnica en áreas como
+                    Contabilidad e Informática.
+                </p>
+
+            </div>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+
+                    <h3>Educación General Básica</h3>
+
+                    <p>
+                        Formación académica orientada al
+                        desarrollo de conocimientos,
+                        habilidades y valores.
+                    </p>
+
+                </div>
+
+                <div class="tarjeta">
+
+                    <h3>Bachillerato</h3>
+
+                    <p>
+                        Preparación académica y técnica
+                        para continuar estudios superiores
+                        y afrontar el mundo laboral.
+                    </p>
+
+                </div>
+
+                <div class="tarjeta">
+
+                    <h3>Formación Técnica</h3>
+
+                    <p>
+                        Desarrollo de competencias
+                        relacionadas con áreas técnicas
+                        y tecnológicas.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="cronograma" style="display:none;">
+
+            <h2>Cronograma de Eventos</h2>
+
+            <div class="caja">
+
+                <p>
+                    Ejemplo de cronograma para actividades
+                    académicas, culturales y deportivas.
+                </p>
+
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Fecha</th>
+                    <th>Actividad</th>
+                    <th>Área</th>
+                    <th>Horario</th>
+                </tr>
+
+                <tr>
+                    <td>Mayo</td>
+                    <td>Inauguración de actividades</td>
+                    <td>Institucional</td>
+                    <td>08:00</td>
+                </tr>
+
+                <tr>
+                    <td>Octubre</td>
+                    <td>Feria académica</td>
+                    <td>Académica</td>
+                    <td>09:00</td>
+                </tr>
+
+                <tr>
+                    <td>Septiembre</td>
+                    <td>Jornada deportiva</td>
+                    <td>Deportes</td>
+                    <td>10:00</td>
+                </tr>
+
+                <tr>
+                    <td>Enero</td>
+                    <td>Clausura</td>
+                    <td>Institucional</td>
+                    <td>12:00</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section id="deportes" style="display:none;">
+
+            <h2>Contenido Deportivo</h2>
+
+            <div class="caja">
+
+                <p>
+                    El deporte forma parte de la formación
+                    integral de los estudiantes, ya que
+                    promueve hábitos saludables, disciplina,
+                    trabajo en equipo y compañerismo.
+                </p>
+
+            </div>
+
+            <div class="deportes">
+
+                <div class="deporte">
+
+                    <h3>⚽ Fútbol</h3>
+
+                    <p>
+                        Actividad que fomenta el trabajo
+                        en equipo y la disciplina.
+                    </p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnL6iJmnKINNO9Y2xsnuBfkcFuvvi-H_tEGGtkL1aUvg&s=10.png" alt="Fútbol">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="colegio" style="display:none;">
+
+            <h2>Información General del Colegio</h2>
+
+            <div class="caja">
+
+                <h3>Ubicación</h3>
+
+                <p>
+                    El Colegio Provincia de Bolívar se
+                    encuentra en Sauces V, Área Comunal,
+                    en la ciudad de Guayaquil.
+                </p>
+
+            </div>
+
+            <div class="caja">
+
+                <h3>Misión</h3>
+
+                <p>
+                    La institución busca formar jóvenes
+                    solidarios, responsables, justos,
+                    creativos e innovadores, fortaleciendo
+                    sus competencias para su desarrollo
+                    académico y laboral.
+                </p>
+
+            </div>
+
+            <div class="caja">
+
+                <h3>Visión</h3>
+
+                <p>
+                    La institución plantea una formación
+                    con enfoque humanista y técnico,
+                    orientada a la excelencia académica
+                    y tecnológica.
+                </p>
+
+            </div>
+
+            <div class="caja">
+
+                <h3>Valores Institucionales</h3>
+
+                <p>
+                    Responsabilidad, tolerancia, justicia,
+                    honestidad, autonomía y solidaridad.
+                </p>
+
+            </div>
+
+            <div class="caja">
+
+                <h3>Contacto</h3>
+                <div>
+                    <p>Visítanos en Facebook:</p><br>
+
+                    <a href="https://www.facebook.com/ProvBolivar/?locale=es_LA">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7SmXt0tQX3YVtZSuDJSV4lQuaEHPcANfIYV98Nxto3w&s" alt="Facebook" height="50px" width="50px">
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="resena" style="display:none;">
+
+            <h2>Reseña</h2>
+
+            <div class="seccion-resena">
+
+                <!-- ENCABEZADO -->
+                <div class="encabezado-resena">
+                    <h1>TUCTA</h1>
+
+                    <div class="linea"></div>
+
+                    <p class="subtitulo">MÚSICA · REFLEXIONES · RECUERDOS</p>
+                </div>
+
+                <!-- MÚSICA ÚNICA DE FONDO -->
+                <audio id="musica" loop>
+                    <source src="musica1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio.
+                </audio>
+
+                <!-- RESEÑAS -->
+                <div class="reseñas">
+
+                    <article class="reseña">
+                        <h3>RESEÑA N.º 01</h3>
+
+                        <h2>Disciplina y amor propio</h2>
+
+                        <p>
+                            Esta canción transmite un mensaje sobre el esfuerzo personal,
+                            la confianza y la importancia de aprender a valorarnos.
+                            Nos recuerda que el crecimiento no siempre es sencillo,
+                            pues requiere constancia, paciencia y voluntad para seguir
+                            adelante. También invita a dejar de depender de la aprobación
+                            de otras personas y a concentrarnos en nuestras propias metas.
+                            Su reflexión nos enseña que la disciplina y el amor propio
+                            son elementos importantes para tomar mejores decisiones,
+                            superar obstáculos y construir nuestro camino con seguridad.
+                        </p>
+                    </article>
+
+                    <article class="reseña">
+                        <h3>RESEÑA N.º 02</h3>
+
+                        <h2>Se perdieron los códigos</h2>
+
+                        <p>
+                            Esta canción nos lleva a reflexionar sobre la transformación
+                            de las costumbres y los valores en la sociedad. A través
+                            de su mensaje, podemos cuestionar la manera en que las
+                            personas se comportan y cómo ciertas normas de respeto
+                            y convivencia han ido perdiendo importancia. Nos invita
+                            a pensar en la sinceridad, la responsabilidad y la lealtad
+                            que deberían estar presentes en nuestras relaciones.
+                            Más que recordar el pasado, su contenido permite analizar
+                            el presente y reconocer qué actitudes podemos mejorar
+                            para convivir de una manera más consciente.
+                        </p>
+                    </article>
+
+                </div>
+
+                <!-- BOTÓN PARA MOSTRAR IMÁGENES -->
+                <div class="zona-boton">
+                    <button class="boton" onclick="mostrarImagenes()">
+                        IMÁGENES
+                    </button>
+                </div>
+
+                <!-- GALERÍA -->
+                <div id="galeria">
+
+                    <h2 class="titulo-galeria">ARCHIVO VISUAL</h2>
+
+                    <div class="galeria">
+
+                        <div class="foto">
+                            <img src="TUCTA5.JPEG" alt="TUCTA1">
+                            <p>TUCTA1</p>
+                        </div>
+
+                        <div class="foto">
+                            <img src="TUCTA4.JPEG" alt="TUCTA2">
+                            <p>TUCTA2</p>
+                        </div>
+
+                        <div class="foto">
+                            <img src="TUCTA3.JPEG" alt="TUCTA3">
+                            <p>TUCTA3</p>
+                        </div>
+
+                        <div class="foto">
+                            <img src="TUCTA2.JPEG" alt="TUCTA4">
+                            <p>TUCTA4</p>
+                        </div>
+
+                        <div class="foto">
+                            <img src="TUCTA1.JPEG" alt="TUCTA5">
+                            <p>TUCTA5</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PIE DE RESEÑA -->
+                <div class="pie-resena">
+                    PROYECTO EUROBLOQUE
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Colegio Provincia de Bolívar
+        </p>
+
+        <p>
+            Página elaborada para exposición académica
+        </p>
+
+    </footer>
+
+    <script>
+
+        function mostrar(seccion) {
+
+            const secciones = [
+                "inicio",
+                "academico",
+                "cronograma",
+                "deportes",
+                "colegio",
+                "resena"
+            ];
+
+            secciones.forEach(function(id) {
+
+                document.getElementById(id).style.display = "none";
+
+            });
+
+            document.getElementById(seccion).style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+        function mostrarImagenes() {
+
+            const galeria = document.getElementById("galeria");
+            const musica = document.getElementById("musica");
+
+            galeria.classList.toggle("mostrar");
+
+            if (musica.paused) {
+                musica.play().catch(error => {
+                    console.log("No se pudo iniciar el audio", error);
+                });
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Reseñas</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background-color: #f4f1eb;
+            color: #333333;
+        }
+
+        /* ENCABEZADO */
+        header {
+            padding: 55px 20px 35px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 43px;
+            font-weight: normal;
+            letter-spacing: 7px;
+            margin-bottom: 15px;
+        }
+
+        .linea {
+            width: 90px;
+            height: 2px;
+            background: #333;
+            margin: 20px auto;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            letter-spacing: 4px;
+        }
+
+        /* RESEÑAS */
+        .reseñas {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .reseña {
+            background-color: #ffffff;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-left: 4px solid #333333;
+        }
+
+        .reseña h2 {
+            font-size: 25px;
+            font-weight: normal;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .reseña h3 {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-align: center;
+            font-weight: normal;
+            color: #777;
+        }
+
+        .reseña p {
+            font-size: 17px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        /* BOTÓN DE IMÁGENES */
+        .zona-boton {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .boton {
+            padding: 16px 42px;
+            background-color: #333333;
+            color: white;
+            border: none;
+            font-size: 14px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #777777;
+            transform: scale(1.04);
+        }
+
+        /* GALERÍA OCULTA */
+        #galeria {
+            display: none;
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        #galeria.mostrar {
+            display: block;
+        }
+
+        .titulo-galeria {
+            font-weight: normal;
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .foto {
+            background-color: white;
+            padding: 12px;
+        }
+
+        .foto img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .foto p {
+            text-align: center;
+            letter-spacing: 4px;
+            font-size: 13px;
+            padding: 12px 0 5px;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            text-align: center;
+            padding: 45px 20px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #666;
+        }
+
+        /* CELULARES */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .reseña {
+                padding: 22px;
+            }
+
+            .reseña p {
+                font-size: 15px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>TUCTA</h1>
+
+        <div class="linea"></div>
+
+        <p class="subtitulo">MÚSICA · REFLEXIONES · RECUERDOS</p>
+    </header>
+
+    <!-- MÚSICA ÚNICA DE FONDO -->
+    <audio id="musica" loop>
+        <source src="musica1.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- RESEÑAS -->
+    <main class="reseñas">
+
+        <section class="reseña">
+            <h3>RESEÑA N.º 01</h3>
+
+            <h2>Disciplina y amor propio</h2>
+
+            <p>
+                Esta canción transmite un mensaje sobre el esfuerzo personal,
+                la confianza y la importancia de aprender a valorarnos.
+                Nos recuerda que el crecimiento no siempre es sencillo,
+                pues requiere constancia, paciencia y voluntad para seguir
+                adelante. También invita a dejar de depender de la aprobación
+                de otras personas y a concentrarnos en nuestras propias metas.
+                Su reflexión nos enseña que la disciplina y el amor propio
+                son elementos importantes para tomar mejores decisiones,
+                superar obstáculos y construir nuestro camino con seguridad.
+            </p>
+        </section>
+
+        <section class="reseña">
+            <h3>RESEÑA N.º 02</h3>
+
+            <h2>Se perdieron los códigos</h2>
+
+            <p>
+                Esta canción nos lleva a reflexionar sobre la transformación
+                de las costumbres y los valores en la sociedad. A través
+                de su mensaje, podemos cuestionar la manera en que las
+                personas se comportan y cómo ciertas normas de respeto
+                y convivencia han ido perdiendo importancia. Nos invita
+                a pensar en la sinceridad, la responsabilidad y la lealtad
+                que deberían estar presentes en nuestras relaciones.
+                Más que recordar el pasado, su contenido permite analizar
+                el presente y reconocer qué actitudes podemos mejorar
+                para convivir de una manera más consciente.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- BOTÓN PARA MOSTRAR IMÁGENES -->
+    <div class="zona-boton">
+        <button class="boton" onclick="mostrarImagenes()">
+            IMÁGENES
+        </button>
+    </div>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+
+        <h2 class="titulo-galeria">ARCHIVO VISUAL</h2>
+
+        <div class="galeria">
+
+            <div class="foto">
+                <img src="TUCTA5.JPEG" alt="TUCTA1">
+                <p>TUCTA1</p>
+            </div>
+
+            <div class="foto">
+                <img src="TUCTA4.JPEG" alt="TUCTA2">
+                <p>TUCTA2</p>
+            </div>
+
+            <div class="foto">
+                <img src="TUCTA3.JPEG" alt="TUCTA3">
+                <p>TUCTA3</p>
+            </div>
+
+            <div class="foto">
+                <img src="TUCTA2.JPEG" alt="TUCTA4">
+                <p>TUCTA4</p>
+            </div>
+
+            <div class="foto">
+                <img src="TUCTA1.JPEG" alt="TUCTA5">
+                <p>TUCTA5</p>
+            </div>
+
+                </div>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        PROYECTO EUROBLOQUE     </footer>
+
+    <!-- FUNCIONES -->
+    <script>
+        function mostrarImagenes() {
+
+            const galeria = document.getElementById("galeria");
+            const musica = document.getElementById("musica");
+
+            galeria.classList.toggle("mostrar");
+
+            if (musica.paused) {
+                musica.play().catch(error => {
+                    console.log("No se pudo iniciar el audio", error);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
+```
